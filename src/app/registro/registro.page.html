@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="page-background">
+  <ion-header collapse="condense" translucent>
+    <ion-toolbar>
+      <ion-title size="large" class="fuente">
+        <span class="plan-text">Plan</span>
+        <span class="valparaiso-text"> Valparaíso</span>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+
+<ion-card class="fuente">
+ <ion-card-header>
+  <ion-card-title>
+    <h1>Crea una cuenta nueva</h1>
+  </ion-card-title>  
+ </ion-card-header>
+ <ion-card-content>
+  <ion-item>
+    <ion-label position="floating" class="fuente">Nombre</ion-label>
+    <ion-input typer="text"></ion-input>    
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" class="fuente">Email</ion-label>
+    <ion-input type="Email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" class="fuente">Contraseña</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" class="fuente">Fecha de nacimiento</ion-label>
+    <ion-input type="date"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button expand="block" class="fuente">Registrarse</ion-button>
+    <br>
+  </ion-item>
+  <br>
+  <div class="enlaces-login">
+    <a routerLink="/login">¿Ya estas registrado? Inicia sesion aqui</a>
+  </div>
+ </ion-card-content>
+</ion-card>
