@@ -16,9 +16,17 @@ mongoose.connect(process.env.MONGO_URI, {
 }).then(() => console.log('✅ Conectado a MongoDB'))
   .catch(err => console.error('❌ Error conectando a MongoDB', err));
 
+// Ruta para la raíz
+app.get('/', (req, res) => {
+  res.send('Bienvenido a la API de PlanSeguro');
+});
+
 // Rutas
 const reportesRoutes = require('./routes/reportes');
 app.use('/api/reportes', reportesRoutes);
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
+
 
 app.listen(port, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
