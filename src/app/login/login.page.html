@@ -24,17 +24,12 @@
     
     <ion-card-content>
       <ion-item>
-        <ion-label position="floating" class="fuente">Correo Electrónico</ion-label>
-        <ion-input [(ngModel)]="correo" type="text"></ion-input>    
+        <ion-input label="Correo Electronico" label-placement="floating" fill="solid" class="Fuente" [(ngModel)]="correo" type="text" placeholder="Ingresa un email válido"></ion-input>    
       </ion-item>
       <ion-item>
-        <ion-label position="floating" class="fuente">Contraseña</ion-label>
-        <ion-input [(ngModel)]="contrasena" type="password"></ion-input>
+        <ion-input label="Contraseña" label-placement="floating" fill="solid" class="Fuente" [(ngModel)]="contrasena" type="password" placeholder="Ingresa tu contraseña"></ion-input>
       </ion-item>
-      <ion-item>
         <ion-button expand="block" class="fuente" (click)="login()">Ingresar</ion-button>
-        <br>
-      </ion-item>
       <br>
       <div class="enlaces-login">
         <a routerLink="/registro">¿No tienes una cuenta? Regístrate</a>
