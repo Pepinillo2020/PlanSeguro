@@ -16,12 +16,17 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/login`, { correo, contrasena }).pipe(
       tap(response => {
         if (response.token) {
-          this.guardarToken(response.token);  // Guarda el token en localStorage
+          this.guardarToken(response.token); // Guarda el token en localStorage
         }
       })
     );
   }
   
+  // Método para registrar un nuevo usuario
+  registrar(usuario: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/registrar`, usuario);
+  }
+
   // Guardar el token en localStorage
   guardarToken(token: string): void {
     localStorage.setItem('token', token);

@@ -1,20 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      adsadsa
+      Bienvenido
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">conectao</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="welcome-container">
+    <h1>¡Hola, Usuario!</h1>
+    <p>Bienvenido a la aplicación de PlanSeguro.</p>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Información Básica</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Aquí puedes agregar información relevante o accesos rápidos.
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
