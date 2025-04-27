@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonTabButton } from '@ionic/angular/standalone';
 
 @Component({
@@ -11,6 +12,8 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonTabButton } from '@ioni
 export class HomePage {
   constructor() {}
 =======
+=======
+>>>>>>> Stashed changes
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonIcon, IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonTabButton, IonFooter, IonTabBar, IonLabel, IonSearchbar, IonTabs, IonMenu, MenuController } from '@ionic/angular/standalone';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -47,5 +50,8 @@ export class HomePage {
   toggleMenu() {
     this.menu.toggle(); // Método para abrir y cerrar el menú
   }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
