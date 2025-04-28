@@ -11,16 +11,11 @@ import { HttpClientModule } from '@angular/common/http';  // Importa HttpClientM
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
   imports: [
     IonButton, IonInput, IonLabel, IonItem, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, 
-=======
-=======
->>>>>>> Stashed changes
-  imports: [IonIcon, IonTabBar, IonFooter, 
+    IonIcon, IonTabBar, IonFooter, 
     IonButton, IonInput, IonItem, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar,
->>>>>>> Stashed changes
     CommonModule, FormsModule, RouterLink, HttpClientModule // Aquí agregas HttpClientModule
   ]
 })

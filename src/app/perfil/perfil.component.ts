@@ -5,8 +5,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, Ion
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.scss'],
-  imports: [IonTabs, IonTabButton, IonCardContent, IonCard, IonCardHeader, IonCardTitle, IonButtons, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonTabBar, IonIcon, IonLabel, IonSearchbar, ],
-
+  imports: [IonTabs, IonTabButton, IonCardContent, IonCard, IonCardHeader, IonCardTitle, IonButtons, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonTabBar, IonIcon, IonLabel, IonSearchbar],
 })
 export class PerfilComponent  implements OnInit {
 
