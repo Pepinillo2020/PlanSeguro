@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonTabButton } from '@ionic/angular/standalone';
 
 @Component({
@@ -12,6 +13,8 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonTabButton } from '@ioni
 export class HomePage {
   constructor() {}
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonIcon, IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonTabButton, IonFooter, IonTabBar, IonLabel, IonSearchbar, IonTabs, IonMenu, MenuController } from '@ionic/angular/standalone';
@@ -51,6 +54,8 @@ export class HomePage {
     this.menu.toggle(); // Método para abrir y cerrar el menú
   }
 <<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';  // Importa HttpClientM
 =======
 =======
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
   imports: [IonIcon, IonTabBar, IonFooter, 
     IonButton, IonInput, IonItem, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar,
 >>>>>>> Stashed changes

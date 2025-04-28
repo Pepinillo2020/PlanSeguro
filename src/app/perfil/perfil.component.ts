@@ -6,9 +6,11 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, Ion
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.scss'],
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   imports: [IonTabs, IonTabButton, IonCardContent, IonCard, IonCardHeader, IonCardTitle, IonButtons, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonTabBar, IonIcon, IonLabel, IonSearchbar, ],
 =======
   imports: [IonTabs, IonTabButton, IonCardContent, IonCard, IonCardHeader, IonCardTitle, IonButtons, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonTabBar, IonIcon, IonLabel, IonSearchbar],
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
 
 })
