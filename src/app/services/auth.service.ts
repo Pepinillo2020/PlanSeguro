@@ -41,4 +41,15 @@ export class AuthService {
   eliminarToken(): void {
     localStorage.removeItem('token');
   }
+
+  private usuario: any = null; // Variable para almacenar los datos del usuario
+
+  setUsuario(usuario: any): void {
+    this.usuario = usuario;
+  }
+  
+  getUsuario(): any {
+    return this.usuario;
+  }
 }
+  

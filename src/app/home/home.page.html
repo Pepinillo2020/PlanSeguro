@@ -1,25 +1,35 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Bienvenido
+      PlanSeguro
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button color="danger" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
+      <ion-button color="light" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="welcome-container">
-    <h1>¡Hola, Usuario!</h1>
+    <h1>¡Hola, {{ usuario.nombre }}!</h1>
     <p>Bienvenido a la aplicación de PlanSeguro.</p>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Información Básica</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Aquí puedes agregar información relevante o accesos rápidos.
-      </ion-card-content>
-    </ion-card>
+    <p>Consulta el mapa de calor para identificar zonas inseguras reportadas.</p>
   </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Mapa de Calor</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div id="map" style="height: 400px; width: 100%; border-radius: 10px; overflow: hidden;"></div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-footer>
+    <ion-toolbar color="light">
+      <ion-title size="small" class="footer-text">
+        © 2025 PlanSeguro. Todos los derechos reservados.
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>

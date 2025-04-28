@@ -38,8 +38,11 @@ export class LoginPage implements OnInit {
       response => {
         if (response && response.token) {
           this.authService.guardarToken(response.token);
+          this.authService.setUsuario(response.usuario); // Asegúrate de guardar los datos del usuario
+          console.log('Usuario guardado:', response.usuario);
           this.router.navigate(['/home']);
           console.log('Inicio de sesión exitoso', response.usuario);
+          
         }
       },
       error => {
