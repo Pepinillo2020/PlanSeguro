@@ -1,5 +1,5 @@
 {
-  "name": "PlanSeguro",
+  "name": "planseguro",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -31,7 +31,15 @@
     "@capacitor/keyboard": "7.0.1",
     "@capacitor/status-bar": "7.0.1",
     "@ionic/angular": "^8.0.0",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
     "ionicons": "^7.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.2",
+    "moongose": "^1.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -43,7 +51,7 @@
     "@angular-eslint/eslint-plugin-template": "^19.0.0",
     "@angular-eslint/schematics": "^19.0.0",
     "@angular-eslint/template-parser": "^19.0.0",
-    "@angular/cli": "^19.0.0",
+    "@angular/cli": "19.2.8",
     "@angular/compiler-cli": "^19.0.0",
     "@angular/language-service": "^19.0.0",
     "@capacitor/cli": "7.2.0",
@@ -64,5 +72,16 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.6.3"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pepinillo2020/PlanSeguro.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Pepinillo2020/PlanSeguro/issues"
+  }
 }

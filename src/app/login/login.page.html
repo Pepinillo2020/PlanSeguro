@@ -14,31 +14,28 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-card class="fuente">
- <ion-card-header>
-  <p>Inicia sesion para continuar</p>
-  <ion-card-title>
-    <h1>Entra a tu cuenta</h1>
-  </ion-card-title>  
- </ion-card-header>
- <ion-card-content>
-  <ion-item>
-    <ion-label position="floating" class="fuente">Correo Electronico</ion-label>
-    <ion-input typer="text"></ion-input>    
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating" class="fuente">Contraseña</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-button expand="block" class="fuente">Ingresar</ion-button>
-    <br>
-  </ion-item>
-  <br>
-  <div class="enlaces-login">
-    <a routerLink="/registro">¿No tienes una cuenta? Regístrate</a>
-    <a routerLink="/recuperar-contrasena">¿Olvidaste tu contraseña?</a>
-  </div>
- </ion-card-content>
-</ion-card>
-
+  <ion-card class="fuente">
+    <ion-card-header>
+      <p>Inicia sesión para continuar</p>
+      <ion-card-title>
+        <h1>Entra a tu cuenta</h1>
+      </ion-card-title>  
+    </ion-card-header>
+    
+    <ion-card-content>
+      <ion-item style="--background: transparent;">
+        <ion-input label="Correo Electronico" label-placement="floating" fill="solid" class="Fuente" [(ngModel)]="correo" type="text" placeholder="Ingresa un email válido"></ion-input>    
+      </ion-item>
+      <ion-item style="--background: transparent;">
+        <ion-input label="Contraseña" label-placement="floating" fill="solid" class="Fuente" [(ngModel)]="contrasena" type="password" placeholder="Ingresa tu contraseña"></ion-input>
+      </ion-item>
+        <ion-button expand="block" class="fuente" (click)="login()">Ingresar</ion-button>
+      <br>
+      <div class="enlaces-login">
+        <a routerLink="/registro">¿No tienes una cuenta? Regístrate</a>
+        <a routerLink="/recuperar-contrasena">¿Olvidaste tu contraseña?</a>
+     </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+ 
