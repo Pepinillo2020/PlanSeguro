@@ -12,6 +12,26 @@ export const routes: Routes = [
     canActivate: [AuthGuard],  // Protege la ruta de home
   },
   {
+    path: 'comentario',
+    loadComponent: () => import('./comentario/comentario.component').then(m => m.ComentarioComponent),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'camara',
+    loadComponent: () => import('./camara/camara.component').then(m => m.CamaraComponent),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'perfil',
+    loadComponent: () => import('./perfil/perfil.component').then(m => m.PerfilComponent),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'ajustes',
+    loadComponent: () => import('./ajustes/ajustes.component').then(m => m.AjustesComponent),
+    canActivate: [AuthGuard],
+  },
+  {
     path: '',
     redirectTo: '/login',  // Asegúrate de que redirige al login correctamente
     pathMatch: 'full',

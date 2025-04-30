@@ -1,29 +1,56 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>
-      PlanSeguro
-    </ion-title>
+  <ion-toolbar>
+    <ion-title>Bienvenido</ion-title>
     <ion-buttons slot="end">
-      <ion-button color="light" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
+      <!-- Botón para abrir el menú -->
+      <ion-button (click)="toggleMenu()">
+        <ion-icon name="reorder-four-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <div class="welcome-container">
-    <h1>¡Hola, {{ usuario.nombre }}!</h1>
-    <p>Bienvenido a la aplicación de PlanSeguro.</p>
-    <p>Consulta el mapa de calor para identificar zonas inseguras reportadas.</p>
-  </div>
+<!-- Menú lateral -->
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-title>Menú</ion-title>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <!-- Botón de Cerrar Sesión dentro del menú -->
+    <ion-button color="danger" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
+  </ion-content>
+</ion-menu>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Mapa de Calor</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <div id="map" style="height: 400px; width: 100%; border-radius: 10px; overflow: hidden;"></div>
-    </ion-card-content>
-  </ion-card>
+<ion-content id="main-content" [fullscreen]="true">
+  <div class="welcome-container">
+    <div style="display: flex; align-items: center;">
+      <ion-searchbar color="light" placeholder="" style="flex: 1;"></ion-searchbar>
+      <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="options-outline" class="negro-icono"></ion-icon>
+      </ion-button>
+    </div>
+
+    <h1>¡Hola, Usuario!</h1>
+    <p>Bienvenido a la aplicación de PlanSeguro.</p>
+    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Información Básica</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Aquí puedes agregar información relevante o accesos rápidos.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Mapa de Calor</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div id="map" style="height: 400px; width: 100%; border-radius: 10px; overflow: hidden;"></div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 
   <ion-footer>
     <ion-toolbar color="light">
@@ -33,3 +60,25 @@
     </ion-toolbar>
   </ion-footer>
 </ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button routerLink="/home">
+    <ion-icon name="home-outline" style="font-size: 30px;"></ion-icon>
+    <ion-label></ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button routerLink="/camara">
+    <ion-icon name="camera-outline" style="font-size: 30px;"></ion-icon>
+    <ion-label></ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button routerLink="/comentario">
+    <ion-icon name="chatbox-ellipses-outline" style="font-size: 30px;"></ion-icon>
+    <ion-label></ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button routerLink="/perfil">
+    <ion-icon name="person-outline" style="font-size: 30px;"></ion-icon>
+    <ion-label></ion-label>
+  </ion-tab-button>
+</ion-tab-bar>

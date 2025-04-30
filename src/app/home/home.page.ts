@@ -1,26 +1,46 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonIcon, IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonAvatar, IonFooter } from '@ionic/angular/standalone';
-import { Router } from '@angular/router';
+import {
+  IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonIcon,
+  IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonTabButton, IonFooter,
+  IonTabBar, IonLabel, IonSearchbar, IonTabs, IonMenu, MenuController
+} from '@ionic/angular/standalone';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { addIcons } from 'ionicons';
+import {
+  personOutline, homeOutline, settingsOutline, chatboxEllipsesOutline,
+  cameraOutline, reorderFourOutline, optionsOutline
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
-  imports: [IonFooter, IonAvatar, IonCardContent, IonCard, IonCardHeader, IonCardTitle, IonButtons, IonButton, IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [
+    IonTabs, IonTabButton, IonCardContent, IonCard, IonCardHeader, IonCardTitle,
+    IonButtons, IonButton, IonHeader, IonToolbar, IonTitle, IonContent,
+    IonFooter, IonTabBar, IonIcon, IonLabel, IonSearchbar, RouterLink, IonMenu
+  ],
 })
 export class HomePage {
-usuario: any = {};
-  constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit() {
-    this.usuario = this.authService.getUsuario(); // Obtén los datos del usuario
-    console.log('Usuario cargado en home:', this.usuario); // Verifica aquí
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private menu: MenuController
+  ) {
+    addIcons({
+      personOutline, homeOutline, settingsOutline,
+      chatboxEllipsesOutline, cameraOutline, reorderFourOutline, optionsOutline
+    });
   }
 
   cerrarSesion() {
-    this.authService.eliminarToken(); // Método para eliminar el token
-    console.log('Token eliminado del almacenamiento local'); // Mensaje en consola
-    this.router.navigate(['/login']); // Redirige al login
+    this.authService.eliminarToken();
+    console.log('Token eliminado del almacenamiento local');
+    this.router.navigate(['/login']);
+  }
+
+  toggleMenu() {
+    this.menu.toggle();
   }
 }

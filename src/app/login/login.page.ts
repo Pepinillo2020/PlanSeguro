@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonInput, IonButton } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonInput, IonButton, IonFooter, IonTabBar, IonIcon } from '@ionic/angular/standalone';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router'; // Agregar Router aquí
 import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';  // Importa HttpClientModule
@@ -11,10 +11,14 @@ import { HttpClientModule } from '@angular/common/http';  // Importa HttpClientM
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
+
   imports: [
-    IonButton, IonInput, IonItem, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar,
-    CommonModule, FormsModule, RouterLink, HttpClientModule // Aquí agregas HttpClientModule
-]
+
+    IonButton, IonInput, IonLabel, IonItem, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, 
+    IonIcon, IonTabBar, IonFooter, 
+
+
+
 })
 export class LoginPage implements OnInit {
 
