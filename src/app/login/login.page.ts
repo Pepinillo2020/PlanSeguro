@@ -13,11 +13,12 @@ import { HttpClientModule } from '@angular/common/http';  // Importa HttpClientM
   standalone: true,
 
   imports: [
+
     IonButton, IonInput, IonLabel, IonItem, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, 
     IonIcon, IonTabBar, IonFooter, 
-    IonButton, IonInput, IonItem, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar,
-    CommonModule, FormsModule, RouterLink, HttpClientModule // Aquí agregas HttpClientModule
-  ]
+
+
+
 })
 export class LoginPage implements OnInit {
 
@@ -32,17 +33,25 @@ export class LoginPage implements OnInit {
   ngOnInit() { }
 
   // Método que se ejecuta cuando el usuario hace click en el botón de login
-  login() {
-    this.authService.login(this.correo, this.contrasena).subscribe(response => {
-      if (response && response.token) {
-        // Si el login es exitoso, guarda el token en el localStorage
-        this.authService.guardarToken(response.token);
-        // Redirige a otra página después del login exitoso
-        this.router.navigate(['/home']); // Cambia '/home' por la ruta a la que deseas redirigir
-        console.log('Inicio de sesión exitoso', response.usuario);
+  async login() {
+    console.log('Correo:', this.correo);
+    console.log('Contraseña:', this.contrasena);
+    console.log('Contraseña recibida en el backend:', this.contrasena);
+
+    this.authService.login(this.correo, this.contrasena).subscribe(
+      response => {
+        if (response && response.token) {
+          this.authService.guardarToken(response.token);
+          this.authService.setUsuario(response.usuario); // Asegúrate de guardar los datos del usuario
+          console.log('Usuario guardado:', response.usuario);
+          this.router.navigate(['/home']);
+          console.log('Inicio de sesión exitoso', response.usuario);
+          
+        }
+      },
+      error => {
+        console.error('Error al iniciar sesión', error);
       }
-    }, error => {
-      console.error('Error al iniciar sesión', error);
-    });
+    );
   }
 }

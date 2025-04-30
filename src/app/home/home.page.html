@@ -41,10 +41,25 @@
         Aquí puedes agregar información relevante o accesos rápidos.
       </ion-card-content>
     </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Mapa de Calor</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div id="map" style="height: 400px; width: 100%; border-radius: 10px; overflow: hidden;"></div>
+      </ion-card-content>
+    </ion-card>
   </div>
+
+  <ion-footer>
+    <ion-toolbar color="light">
+      <ion-title size="small" class="footer-text">
+        © 2025 PlanSeguro. Todos los derechos reservados.
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>
-
-
 
 <ion-tab-bar slot="bottom">
   <ion-tab-button routerLink="/home">
