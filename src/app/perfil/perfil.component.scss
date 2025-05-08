@@ -1,3 +1,30 @@
-ion-content {
-    background-color: white !important; /* Usa el color que prefieras */
-  }
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+ion-icon {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+ion-header {
+  background: #3F5EFB;
+  background: linear-gradient(308deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);  
+}
+
+
+ion-tab-bar {
+  background: #3F5EFB;
+  background: linear-gradient(308deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);  --ion-tab-bar-background: transparent; 
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px; 
+  padding: 10px; 
+}
+
+.perfil-card{
+  margin: 0;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+

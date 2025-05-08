@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from 'src/guards/auth.guard';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 export const routes: Routes = [
   {
@@ -7,34 +8,32 @@ export const routes: Routes = [
     loadComponent: () => import('./login/login.page').then(m => m.LoginPage),
   },
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-    canActivate: [AuthGuard],  // Protege la ruta de home
-  },
-  {
-    path: 'comentario',
-    loadComponent: () => import('./comentario/comentario.component').then(m => m.ComentarioComponent),
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'camara',
-    loadComponent: () => import('./camara/camara.component').then(m => m.CamaraComponent),
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'perfil',
-    loadComponent: () => import('./perfil/perfil.component').then(m => m.PerfilComponent),
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'ajustes',
-    loadComponent: () => import('./ajustes/ajustes.component').then(m => m.AjustesComponent),
-    canActivate: [AuthGuard],
-  },
-  {
     path: '',
-    redirectTo: '/login',  // Asegúrate de que redirige al login correctamente
-    pathMatch: 'full',
+    component: MainLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'home',
+        loadComponent: () => import('./home/home.page').then(m => m.HomePage),
+      },
+      {
+        path: 'comentario',
+        loadComponent: () => import('./comentario/comentario.component').then(m => m.ComentarioComponent),
+      },
+      {
+        path: 'camara',
+        loadComponent: () => import('./camara/camara.component').then(m => m.CamaraComponent),
+      },
+      {
+        path: 'perfil',
+        loadComponent: () => import('./perfil/perfil.component').then(m => m.PerfilComponent),
+      },
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+      },
+    ]
   },
   {
     path: 'registro',

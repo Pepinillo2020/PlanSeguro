@@ -1,25 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Bienvenido</ion-title>
-    <ion-buttons slot="end">
-      <!-- Botón para abrir el menú -->
-      <ion-button (click)="toggleMenu()">
-        <ion-icon name="reorder-four-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-<!-- Menú lateral -->
-<ion-menu side="end" contentId="main-content">
-  <ion-header>
-    <ion-title>Menú</ion-title>
-  </ion-header>
-  <ion-content class="ion-padding">
-    <!-- Botón de Cerrar Sesión dentro del menú -->
-    <ion-button color="danger" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
-  </ion-content>
-</ion-menu>
 
 <ion-content id="main-content" [fullscreen]="true">
   <div class="welcome-container">

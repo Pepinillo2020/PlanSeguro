@@ -1,3 +1,68 @@
-<p>
-  comentario works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Bienvenido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Botón para mostrar el formulario -->
+  <ion-button expand="full" (click)="mostrarFormulario = !mostrarFormulario">
+    {{ mostrarFormulario ? 'Cancelar' : 'Ingresar Nuevo Incidente' }}
+  </ion-button>
+
+  <!-- Formulario para ingresar comentario -->
+  <ion-card *ngIf="mostrarFormulario" style="padding-bottom: 56px;">
+    <ion-card-header>
+      <ion-card-title>Detalles del Incidente</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label position="stacked">Tipo de Incidente</ion-label>
+        <ion-select placeholder="Selecciona el tipo de incidente">
+          <ion-select-option value="robo">Robo</ion-select-option>
+          <ion-select-option value="accidente">Accidente</ion-select-option>
+          <ion-select-option value="incendio">Incendio</ion-select-option>
+          <ion-select-option value="violencia">Violencia</ion-select-option>
+          <ion-select-option value="otro">Otro</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Descripción del Incidente</ion-label>
+        <ion-textarea placeholder="Escribe tu comentario aquí..." rows="4"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Ubicación del Incidente</ion-label>
+        <ion-input placeholder="Ingresa la ubicación (ej: Calle 123, Ciudad)" type="text"></ion-input>
+      </ion-item>
+
+      <!-- Cargar imagen (opcional) -->
+      <ion-item>
+        <ion-label position="stacked">Subir Imagen (opcional)</ion-label>
+        <ion-input type="file" accept="image/*"></ion-input>
+      </ion-item>
+
+      <!-- Enviar Comentario -->
+      <ion-button expand="full">Enviar Comentario</ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Comentarios ya enviados -->
+  <ion-card style="padding-bottom: 56px;">
+    <ion-card-header>
+      <ion-card-title>Comentario sobre Incidente</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Tipo de Incidente:</strong> Robo</p>
+      <p><strong>Ubicación:</strong> Calle 123, Ciudad</p>
+      <p><strong>Comentario:</strong> Vi un robo en el parqueo, el sospechoso llevaba una mochila negra.</p>
+      <p><strong>Imagen adjunta:</strong></p>
+      <img src="assets/img/ejemplo.jpg" alt="Imagen incidente" style="width: 100%; border-radius: 8px;">
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,5 +1,23 @@
-<ion-content>
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Bienvenido</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-
-
-</ion-content>
+  
+<ion-content class="fondo-blanco">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Perfil de Usuario</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="perfil-card">
+        <ion-avatar>
+          <img src="assets/img/avatar.png">
+        </ion-avatar>
+        <p>Nombre: Usuario X</p>
+        <p>Correo: usuario.com</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-button class="ion-padding" color="danger" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
+  </ion-content>
+  
