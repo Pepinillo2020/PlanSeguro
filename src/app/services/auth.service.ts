@@ -51,5 +51,9 @@ export class AuthService {
   getUsuario(): any {
     return this.usuario;
   }
+  
+    getHeatmapData(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/heatmap`);
+  }
 }
   
