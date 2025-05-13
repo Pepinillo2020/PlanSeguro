@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 // Rutas
 const reportesRoutes = require('./routes/reportes');
-app.use('/api/reportes', reportesRoutes);
+app.use('/reportes', reportesRoutes); // Registra las rutas de reportes
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
