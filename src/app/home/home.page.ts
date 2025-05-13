@@ -14,6 +14,10 @@ import {
 import * as L from 'leaflet';
 import 'leaflet.heat';
 
+declare module 'leaflet' {
+  export function heatLayer(latlngs: [number, number, number][], options?: any): any;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
