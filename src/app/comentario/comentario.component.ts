@@ -49,15 +49,8 @@ export class ComentarioComponent implements OnInit {
     formData.append('descripcion', this.reporteForm.get('descripcion')?.value);
     formData.append('ubicacion', this.reporteForm.get('ubicacion')?.value);
     if (this.imagenSeleccionada) {
-      formData.append('imagen', this.imagenSeleccionada);
+      formData.append('imagen', this.imagenSeleccionada); // El nombre del campo debe ser 'imagen'
     }
-
-    console.log('Datos enviados al backend:', {
-      tipo: this.reporteForm.get('tipo')?.value,
-      descripcion: this.reporteForm.get('descripcion')?.value,
-      ubicacion: this.reporteForm.get('ubicacion')?.value,
-      imagen: this.imagenSeleccionada,
-    });
 
     this.reporteService.crearReporte(formData).subscribe({
       next: (response) => {

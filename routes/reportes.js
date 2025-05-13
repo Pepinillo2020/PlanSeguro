@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
 const Reporte = require('../backend-models/Reporte');
+
+// Configuración de multer para guardar archivos en memoria
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 // GET - obtener todos los reportes
 router.get('/', async (req, res) => {
@@ -13,9 +18,15 @@ router.get('/', async (req, res) => {
 });
 
 // POST - crear un nuevo reporte
-router.post('/', async (req, res) => {
+router.post('/', upload.single('imagen'), async (req, res) => {
   try {
-    const { tipo, descripcion, ubicacion, imagen } = req.body;
+    const { tipo, descripcion, ubicacion } = req.body;
+
+    // Procesar la imagen (si se envió)
+    let imagen = null;
+    if (req.file) {
+      imagen = req.file.buffer.toString('base64');
+    }
 
     const nuevoReporte = new Reporte({
       tipo,
@@ -27,6 +38,7 @@ router.post('/', async (req, res) => {
     await nuevoReporte.save();
     res.status(201).json({ mensaje: 'Reporte creado con éxito', reporte: nuevoReporte });
   } catch (error) {
+    console.error('Error al guardar el reporte:', error);
     res.status(500).json({ error: 'Error al guardar el reporte', details: error.message });
   }
 });
