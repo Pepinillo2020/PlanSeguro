@@ -49,7 +49,7 @@ export class ComentarioComponent implements OnInit {
     formData.append('descripcion', this.reporteForm.get('descripcion')?.value);
     formData.append('ubicacion', this.reporteForm.get('ubicacion')?.value);
     if (this.imagenSeleccionada) {
-      formData.append('imagen', this.imagenSeleccionada); // El nombre del campo debe ser 'imagen'
+      formData.append('imagen', this.imagenSeleccionada);
     }
 
     this.reporteService.crearReporte(formData).subscribe({
