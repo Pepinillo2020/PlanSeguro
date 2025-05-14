@@ -1,18 +1,43 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import * as L from 'leaflet';
+import 'leaflet.heat';
+
+// Ionic standalone components
 import {
-  IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonIcon,
-  IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonTabButton, IonFooter,
-  IonTabBar, IonLabel, IonSearchbar, IonTabs, IonMenu, MenuController
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButton,
+  IonButtons,
+  IonIcon,
+  IonCardTitle,
+  IonCardHeader,
+  IonCard,
+  IonCardContent,
+  IonItem,
+  IonLabel,
+  IonSelect,
+  IonSelectOption,
+  IonTextarea,
+  IonInput,
+  IonSearchbar,
+  IonTabButton,
+  IonFooter,
+  IonTabBar,
+  IonTabs,
+  IonMenu,
+  MenuController
 } from '@ionic/angular/standalone';
-import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { addIcons } from 'ionicons';
 import {
   personOutline, homeOutline, settingsOutline, chatboxEllipsesOutline,
   cameraOutline, reorderFourOutline, optionsOutline
 } from 'ionicons/icons';
-import * as L from 'leaflet';
-import 'leaflet.heat';
 
 declare module 'leaflet' {
   export function heatLayer(latlngs: [number, number, number][], options?: any): any;
@@ -23,19 +48,45 @@ declare module 'leaflet' {
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   imports: [
-    IonTabs, IonTabButton, IonCardContent, IonCard, IonCardHeader, IonCardTitle,
-    IonButtons, IonButton, IonHeader, IonToolbar, IonTitle, IonContent,
-    IonFooter, IonTabBar, IonIcon, IonLabel, IonSearchbar, RouterLink, IonMenu
+    CommonModule,
+    ReactiveFormsModule, // Para trabajar con formularios reactivos
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonButton,
+    IonButtons,
+    IonIcon,
+    IonCardTitle,
+    IonCardHeader,
+    IonCard,
+    IonCardContent,
+    IonItem,
+    IonLabel,
+    IonSelect,
+    IonSelectOption,
+    IonTextarea,
+    IonInput,
+    IonSearchbar,
   ],
 })
 export class HomePage implements OnInit {
   private map: any;
+  mostrarFormulario = false;
+  reporteForm: FormGroup;
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private menu: MenuController
+    private menu: MenuController,
+    private fb: FormBuilder
   ) {
+    this.reporteForm = this.fb.group({
+      tipo: [''],
+      descripcion: [''],
+      ubicacion: [''],
+    });
+
     addIcons({
       personOutline, homeOutline, settingsOutline,
       chatboxEllipsesOutline, cameraOutline, reorderFourOutline, optionsOutline
@@ -122,5 +173,50 @@ export class HomePage implements OnInit {
       // Fuerza a Leaflet a recalcular el tamaño del mapa
       this.map.invalidateSize();
     }, 500); // Retraso de 500ms para asegurar que el contenedor esté listo
+  }
+
+  toggleFormulario() {
+    this.mostrarFormulario = !this.mostrarFormulario;
+
+    if (this.mostrarFormulario) {
+      this.obtenerUbicacionActual();
+    }
+  }
+
+  obtenerUbicacionActual() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          const ubicacion = `${lat}, ${lng}`;
+          this.reporteForm.patchValue({ ubicacion });
+
+          // Dibujar un círculo en el mapa
+          const circle = L.circle([lat, lng], {
+            color: 'blue',
+            fillColor: '#3F5EFB',
+            fillOpacity: 0.5,
+            radius: 200, // Radio en metros
+          }).addTo(this.map);
+
+          // Centrar el mapa en la ubicación
+          this.map.setView([lat, lng], 16);
+        },
+        (error) => {
+          console.error('Error obteniendo la ubicación:', error);
+          alert('No se pudo obtener la ubicación actual.');
+        }
+      );
+    } else {
+      alert('La geolocalización no es compatible con este navegador.');
+    }
+  }
+
+  onSubmit() {
+    console.log('Reporte enviado:', this.reporteForm.value);
+    alert('Reporte enviado con éxito.');
+    this.mostrarFormulario = false;
+    this.reporteForm.reset();
   }
 }
