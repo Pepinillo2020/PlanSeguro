@@ -6,62 +6,23 @@
 
 <ion-content id="main-content" [fullscreen]="true">
   <div class="welcome-container">
-    <div style="display: flex; align-items: center;">
+    <div style="display: flex; align-items: center; margin-bottom: 5px;">
       <ion-searchbar color="light" placeholder="" style="flex: 1;"></ion-searchbar>
       <ion-button fill="clear">
         <ion-icon slot="icon-only" name="options-outline" class="negro-icono"></ion-icon>
       </ion-button>
     </div>
 
-    <h1>¡Hola, Usuario!</h1>
-    <p>Bienvenido a la aplicación de PlanSeguro.</p>
-    
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Información Básica</ion-card-title>
-      </ion-card-header>
+    <ion-card style="margin-top: 0;">
       <ion-card-content>
-        Aquí puedes agregar información relevante o accesos rápidos.
+        <div id="map"></div>
       </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-    <ion-card-header>
-      <ion-card-title>Mapa de Calor</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <div id="map" style="height: 400px; width: 100%;"></div>
-    </ion-card-content>
     </ion-card>
   </div>
 
-  <ion-footer>
-    <ion-toolbar color="light">
-      <ion-title size="small" class="footer-text">
-        © 2025 PlanSeguro. Todos los derechos reservados.
-      </ion-title>
-    </ion-toolbar>
-  </ion-footer>
+  <!-- Botón flotante ajustado -->
+  <div class="floating-button">
+    <ion-button expand="block" class="boton">Reportar</ion-button>
+  </div>
 </ion-content>
 
-<ion-tab-bar slot="bottom">
-  <ion-tab-button routerLink="/home">
-    <ion-icon name="home-outline" style="font-size: 30px;"></ion-icon>
-    <ion-label></ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button routerLink="/camara">
-    <ion-icon name="camera-outline" style="font-size: 30px;"></ion-icon>
-    <ion-label></ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button routerLink="/comentario">
-    <ion-icon name="chatbox-ellipses-outline" style="font-size: 30px;"></ion-icon>
-    <ion-label></ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button routerLink="/perfil">
-    <ion-icon name="person-outline" style="font-size: 30px;"></ion-icon>
-    <ion-label></ion-label>
-  </ion-tab-button>
-</ion-tab-bar>

@@ -6,11 +6,6 @@
 
 <ion-content>
 
-  <!-- Botón para mostrar el formulario -->
-  <ion-button expand="full" (click)="mostrarFormulario = !mostrarFormulario">
-    {{ mostrarFormulario ? 'Cancelar' : 'Ingresar Nuevo Reporte' }}
-  </ion-button>
-
   <!-- Formulario para ingresar reporte -->
   <ion-card *ngIf="mostrarFormulario" style="padding-bottom: 56px;">
     <ion-card-header>
@@ -61,6 +56,10 @@
       <p *ngIf="reporte.imagen"><strong>Imagen adjunta:</strong></p>
       <img *ngIf="reporte.imagen" [src]="reporte.imagen" alt="Imagen incidente" style="width: 100%; border-radius: 8px;">
     </ion-card-content>
+
   </ion-card>
+  <ion-button class="fixed-button" (click)="toggleFormulario()">
+    <ion-icon name="megaphone-outline" style="font-size: 35px;"></ion-icon>
+  </ion-button>
 
 </ion-content>

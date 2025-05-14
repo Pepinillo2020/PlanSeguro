@@ -25,7 +25,8 @@ ion-icon {
 
 ion-tab-bar {
   background: #3F5EFB;
-  background: linear-gradient(308deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);  --ion-tab-bar-background: transparent; 
+  background: linear-gradient(308deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%); 
+ --ion-tab-bar-background: transparent; 
   border-top-left-radius: 20px;
   border-top-right-radius: 20px; 
   padding: 10px; 
@@ -36,8 +37,29 @@ ion-tab-bar {
 }
 
 #map {
-  height: 400px;
-  width: 100%;
+  height: calc(100vh - 250px); // Ajusta dinámicamente el alto del mapa
+  width: 100%;                // Ocupa todo el ancho disponible
   border-radius: 10px;
   overflow: hidden;
+}
+
+.floating-button {
+  position: fixed; /* Cambia a relativo para que respete el flujo del contenido */
+  margin-top: 16px;   /* Agrega un margen superior para separarlo del mapa */
+  bottom: 75px;
+  left: 16px;         /* Margen izquierdo */
+  right: 16px;        /* Margen derecho */
+  z-index: 10;        /* Asegúrate de que esté por encima de otros elementos */
+}
+
+ion-card-content {
+  padding: 0; 
+}
+
+.boton {
+  background: #3F5EFB;
+  background: linear-gradient(308deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+  color: #ffffff;
+  border-radius: 10px;
+  --background: none;
 }
