@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonIcon,
   IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonTabButton, IonFooter,
@@ -8,6 +8,12 @@ import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
 import { ReporteService } from '../services/reporte.service';
+import { addIcons } from 'ionicons';
+import {
+  personOutline, homeOutline, settingsOutline,
+  chatboxEllipsesOutline, cameraOutline, reorderFourOutline, optionsOutline,
+  megaphoneOutline
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-comentario',
@@ -21,6 +27,7 @@ import { ReporteService } from '../services/reporte.service';
   ],
 })
 export class ComentarioComponent implements OnInit {
+  @ViewChild(IonContent, { static: false }) content!: IonContent; // Referencia al contenido de la página
   mostrarFormulario = false;
   reporteForm: FormGroup;
   reportes: any[] = [];
@@ -33,10 +40,23 @@ export class ComentarioComponent implements OnInit {
       ubicacion: [''],
       imagen: [null]
     });
+
+    // Agrega los íconos aquí
+    addIcons({
+      personOutline, homeOutline, settingsOutline,
+      chatboxEllipsesOutline, cameraOutline, reorderFourOutline, optionsOutline, megaphoneOutline
+    });
   }
 
   ngOnInit() {
     this.obtenerReportes();
+  }
+
+  toggleFormulario() {
+    this.mostrarFormulario = !this.mostrarFormulario;
+    if (this.mostrarFormulario) {
+      this.content.scrollToTop(300); // Desplaza hacia arriba con una animación de 300ms
+    }
   }
 
   onFileChange(event: any) {
