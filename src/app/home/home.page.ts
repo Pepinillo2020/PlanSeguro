@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
 import 'leaflet.heat';
+import { ReporteService } from '../services/reporte.service';
+
 
 // Ionic standalone components
 import {
@@ -56,7 +58,9 @@ export class HomePage implements OnInit {
     private authService: AuthService,
     private router: Router,
     private menu: MenuController,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private reporteService: ReporteService  // <--- Aquí
+
   ) {
     this.reporteForm = this.fb.group({
       tipo: [''],
@@ -191,9 +195,23 @@ export class HomePage implements OnInit {
   }
 
   onSubmit() {
-    console.log('Reporte enviado:', this.reporteForm.value);
-    alert('Reporte enviado con éxito.');
-    this.mostrarFormulario = false;
-    this.reporteForm.reset();
+    if (this.reporteForm.valid) {
+      const nuevoReporte = this.reporteForm.value;
+
+      this.reporteService.crearReporte(nuevoReporte).subscribe({
+        next: (res) => {
+          console.log('Reporte enviado:', res);
+          alert('Reporte enviado con éxito.');
+          this.mostrarFormulario = false;
+          this.reporteForm.reset();
+        },
+        error: (err) => {
+          console.error('Error al enviar reporte:', err);
+          alert('Error al enviar el reporte. Intenta nuevamente.');
+        }
+      });
+    } else {
+      alert('Por favor completa todos los campos requeridos.');
+    }
   }
-}
+  }
