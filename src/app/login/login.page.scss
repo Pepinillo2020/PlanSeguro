@@ -1,20 +1,18 @@
 .page-background {
-  --background: linear-gradient(to bottom right, #4ABDAC, #FCF6F5);
+  --background: linear-gradient(to bottom right, #fff89a, #ffb5e8);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px;
   height: 100%;
-  animation: fadeInBackground 0.8s ease-in-out;
 }
+
 ion-card {
   background: transparent;
   box-shadow: none;
   width: 100%;
   max-width: 360px;
   padding: 16px;
-  animation: slideInCard 0.8s ease-out;
-
 }
 
 ion-card-header p {
@@ -103,35 +101,9 @@ ion-toolbar::after {
 }
 
 .plan-text {
-  color: #000000; /* Morado */
-  font-size: 60px;
-  font-family: 'Times New Roman', Times, serif;
-  animation: slideInCard 1s ease forwards;
-  text-align: center;
-  margin-top: 50px;  /* o padding-top: 20px; */
-
+  color: #9b4dca; /* Morado */
 }
 
-/* Animaciones */
-@keyframes fadeInBackground {
-  0% {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+.valparaiso-text {
+  color: #000000; /* Negro */
 }
-
-@keyframes slideInCard {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
