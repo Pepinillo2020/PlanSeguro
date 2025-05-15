@@ -5,6 +5,8 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, Io
 import { RouterLink, RouterLinkActive, Router } from '@angular/router'; // Agregar Router aquí
 import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';  // Importa HttpClientModule
+import { IonIcon } from '@ionic/angular/standalone';
+
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';  // Importa HttpClientM
   styleUrls: ['./login.page.scss'],
   standalone: true,
   imports: [
-    IonButton, IonInput, IonItem, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar,
+    IonButton, IonInput, IonItem, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonIcon, IonContent, IonHeader, IonTitle, IonToolbar,
     CommonModule, FormsModule, RouterLink, HttpClientModule // Aquí agregas HttpClientModule
 ]
 })
