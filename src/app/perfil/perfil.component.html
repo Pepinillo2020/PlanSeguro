@@ -5,18 +5,20 @@
   </ion-header>
 
 <ion-content class="fondo-blanco">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Perfil de Usuario</ion-card-title>
-      </ion-card-header>
-      <ion-card-content class="perfil-card">
-        <ion-avatar>
-          <img src="assets/img/avatar.png">
-        </ion-avatar>
-        <p>Nombre: Usuario X</p>
-        <p>Correo: usuario.com</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-button class="ion-padding" color="danger" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
-  </ion-content>
-  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Perfil de Usuario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="perfil-card">
+      <div class="avatar-container">
+<ion-avatar class="avatar-icon">
+  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar de usuario">
+</ion-avatar>
+
+      </div>
+      <p>Nombre: {{usuario.nombre}}</p>
+      <p>Correo: {{usuario.correo}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-button class="ion-padding" color="danger" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
+</ion-content>
