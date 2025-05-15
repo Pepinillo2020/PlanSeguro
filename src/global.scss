@@ -36,24 +36,3 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 /*@import '@ionic/angular/css/palettes/dark.system.css'; */
 
-.leaflet-control-geosearch {
-  top: 10px !important;       /* espacio desde arriba del mapa */
-  left: 10px !important;      /* espacio desde izquierda */
-  right: auto !important;     /* para evitar conflicto */
-  width: 300px !important;    /* ancho fijo como ion-searchbar */
-  border-radius: 8px;
-  background: #f4f5f8;        /* color fondo similar ion-searchbar */
-  font-family: "San Francisco", "Roboto", "Helvetica Neue", sans-serif;
-  font-size: 15px;
-}
-
-.leaflet-control-geosearch input {
-  height: 36px !important;
-  border-radius: 8px !important;
-  padding-left: 12px !important;
-  font-size: 14px !important;
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-  width: 100% !important;
-}
