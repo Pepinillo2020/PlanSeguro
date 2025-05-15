@@ -27,4 +27,14 @@ ion-tab-bar {
   box-shadow: none !important;
 }
 
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.avatar-icon {
+  width: 80px;
+  height: 80px;
+}
 

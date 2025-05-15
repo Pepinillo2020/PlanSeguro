@@ -7,30 +7,7 @@ import 'leaflet.heat';
 
 // Ionic standalone components
 import {
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-  IonButton,
-  IonButtons,
-  IonIcon,
-  IonCardTitle,
-  IonCardHeader,
-  IonCard,
-  IonCardContent,
-  IonItem,
-  IonLabel,
-  IonSelect,
-  IonSelectOption,
-  IonTextarea,
-  IonInput,
-  IonSearchbar,
-  IonTabButton,
-  IonFooter,
-  IonTabBar,
-  IonTabs,
-  IonMenu,
-  MenuController
+  IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonIcon, IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonItem, IonLabel, IonSelect, IonSelectOption, IonTextarea, IonInput, IonSearchbar,IonTabButton, IonFooter, IonTabBar, IonTabs, IonMenu, MenuController
 } from '@ionic/angular/standalone';
 import { AuthService } from '../services/auth.service';
 import { addIcons } from 'ionicons';

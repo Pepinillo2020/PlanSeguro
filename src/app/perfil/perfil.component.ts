@@ -16,6 +16,8 @@ import {
   imports: [IonAvatar, IonTabs, IonTabButton, IonCardContent, IonCard, IonCardHeader, IonCardTitle, IonButtons, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonTabBar, IonIcon, IonLabel, IonSearchbar, IonMenu, IonAvatar],
 })
 export class PerfilComponent  implements OnInit {
+  usuario: any;
+  correo: string = '';
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -32,5 +34,8 @@ export class PerfilComponent  implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.usuario = this.authService.getUsuario();
+
+  }
 }
