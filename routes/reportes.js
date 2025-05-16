@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 // POST - crear un nuevo reporte
 router.post('/', upload.single('imagen'), async (req, res) => {
   try {
-    const { tipo, descripcion, ubicacion } = req.body;
+    const { tipo, descripcion, ubicacion, usuarioId } = req.body;
 
     let imagenUrl = null;
 
@@ -42,7 +42,8 @@ router.post('/', upload.single('imagen'), async (req, res) => {
             tipo,
             descripcion,
             ubicacion,
-            imagen: imagenUrl
+            imagen: imagenUrl,
+            usuarioId,
           });
 
           nuevoReporte.save()
@@ -61,7 +62,8 @@ router.post('/', upload.single('imagen'), async (req, res) => {
       const nuevoReporte = new Reporte({
         tipo,
         descripcion,
-        ubicacion
+        ubicacion,
+        usuarioId
       });
 
       await nuevoReporte.save();
@@ -72,5 +74,23 @@ router.post('/', upload.single('imagen'), async (req, res) => {
     res.status(500).json({ error: 'Error al guardar el reporte', details: error.message });
   }
 });
+// DELETE - eliminar reporte por id
+router.delete('/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const resultado = await Reporte.findByIdAndDelete(id);
+
+    if (!resultado) {
+      return res.status(404).json({ error: 'Reporte no encontrado' });
+    }
+
+    res.status(200).json({ mensaje: 'Reporte eliminado con éxito' });
+  } catch (error) {
+    console.error('Error al eliminar el reporte:', error);
+    res.status(500).json({ error: 'Error al eliminar el reporte', details: error.message });
+  }
+});
+
+
 
 module.exports = router;

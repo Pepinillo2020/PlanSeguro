@@ -36,11 +36,23 @@ ion-tab-bar {
   color: black;
 }
 
+.map-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
 #map {
-  height: calc(100vh - 250px); // Ajusta dinámicamente el alto del mapa
-  width: 100%;                // Ocupa todo el ancho disponible
-  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 1px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .floating-button {
@@ -65,11 +77,25 @@ ion-card-content {
 }
 
 .btnReporte{
-  
   background: #8296ff;
   background: linear-gradient(308deg, rgba(63, 94, 251, 1) 0%, rgb(255, 122, 148) 100%);
   color: #ffffff;
   border-radius: 10px;
   --background: none;
+}
+
+/* Formulario reporte: aparece sobre el mapa, centrado y con un max width */
+.formulario-reporte {
+  position: fixed;
+  top: 40%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  z-index: 10;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 0;
 }
 

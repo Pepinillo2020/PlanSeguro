@@ -11,8 +11,8 @@ import { ReporteService } from '../services/reporte.service';
 import { addIcons } from 'ionicons';
 import {
   personOutline, homeOutline, settingsOutline,
-  chatboxEllipsesOutline, cameraOutline, reorderFourOutline, optionsOutline,
-  megaphoneOutline
+  chatboxEllipsesOutline, cameraOutline, reorderFourOutline, optionsOutline, megaphoneOutline, trash,
+  trashOutline
 } from 'ionicons/icons';
 
 @Component({
@@ -44,7 +44,7 @@ export class ComentarioComponent implements OnInit {
     // Agrega los íconos aquí
     addIcons({
       personOutline, homeOutline, settingsOutline,
-      chatboxEllipsesOutline, cameraOutline, reorderFourOutline, optionsOutline, megaphoneOutline
+      chatboxEllipsesOutline, cameraOutline, reorderFourOutline, optionsOutline, megaphoneOutline, trashOutline
     });
   }
 
@@ -63,32 +63,50 @@ export class ComentarioComponent implements OnInit {
     this.imagenSeleccionada = event.target.files[0];
   }
 
-  onSubmit() {
-    const formData = new FormData();
-    formData.append('tipo', this.reporteForm.get('tipo')?.value);
-    formData.append('descripcion', this.reporteForm.get('descripcion')?.value);
-    formData.append('ubicacion', this.reporteForm.get('ubicacion')?.value);
-    if (this.imagenSeleccionada) {
-      formData.append('imagen', this.imagenSeleccionada);
-    }
+onSubmit() {
+  const formData = new FormData();
+  formData.append('tipo', this.reporteForm.get('tipo')?.value);
+  formData.append('descripcion', this.reporteForm.get('descripcion')?.value);
+  formData.append('ubicacion', this.reporteForm.get('ubicacion')?.value);
 
-    this.reporteService.crearReporte(formData).subscribe({
-      next: (response) => {
-        console.log('Reporte creado:', response);
-        this.mostrarFormulario = false;
-        this.obtenerReportes();
-      },
-      error: (error) => {
-        console.error('Error al crear el reporte:', error);
-      }
-    });
+  const usuarioId = localStorage.getItem('usuarioId');
+  if (usuarioId) {
+    formData.append('usuarioId', usuarioId);
   }
+
+  if (this.imagenSeleccionada) {
+    formData.append('imagen', this.imagenSeleccionada);
+  }
+
+  this.reporteService.crearReporte(formData).subscribe({
+    next: (response) => {
+      console.log('Reporte creado:', response);
+      this.mostrarFormulario = false;
+      this.obtenerReportes();
+    },
+    error: (error: any) => {
+      console.error('Error al crear el reporte:', error);
+    }
+  });
+}
+
 
   obtenerReportes() {
     this.reporteService.getReportes().subscribe(response => {
       this.reportes = response;
     });
   }
+  eliminarReporte(id: string) {
+  this.reporteService.eliminarReporte(id).subscribe({
+    next: () => {
+      this.reportes = this.reportes.filter(r => r._id !== id);
+      console.log('Reporte eliminado correctamente');
+    },
+    error: (error: any) => {
+      console.error('Error al eliminar reporte:', error);
+    }
+  });
+}
 }
 
 

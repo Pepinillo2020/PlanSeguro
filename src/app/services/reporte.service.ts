@@ -19,4 +19,8 @@ export class ReporteService {
   crearReporte(reporte: any): Observable<any> {
     return this.http.post(this.apiUrl, reporte);
   }
+
+    eliminarReporte(id: string) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

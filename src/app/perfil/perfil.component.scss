@@ -1,6 +1,4 @@
-* {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+
 
 ion-icon {
   font-size: 24px;
@@ -38,3 +36,10 @@ ion-tab-bar {
   height: 80px;
 }
 
+.reportes{
+    background: #8296ff;
+  background: linear-gradient(308deg, rgba(63, 94, 251, 1) 0%, rgb(255, 122, 148) 100%);
+  color: #ffffff;
+  border-radius: 10px;
+  --background: none;
+} 

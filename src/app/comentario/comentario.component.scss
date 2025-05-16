@@ -23,19 +23,45 @@ img {
   object-fit: cover; /* Ajusta la imagen para llenar el contenedor sin distorsión */
 }
 
-.fixed-button {
+.btnReportar {
   position: fixed; /* Fija el botón en la pantalla */
   bottom: 75px; /* Aumenta la distancia desde la parte inferior */
   right: 30px; /* Distancia desde la parte derecha */
   z-index: 100; /* Asegúrate de que esté por encima de otros elementos */
-  border-radius: 50%; /* Botón redondeado */
   width: 52px; /* Tamaño del botón */
   height: 52px; /* Tamaño del botón */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #889cff;
-  background: linear-gradient(308deg, rgba(63, 94, 251, 1) 0%, rgb(255, 139, 162) 100%);  
-  color: #ffffff; /* Color del texto o ícono */
+  background: #8296ff;
+  background: linear-gradient(308deg, rgba(63, 94, 251, 1) 0%, rgb(255, 122, 148) 100%);
+  color: #ffffff;
+  border-radius: 10px;
+  --background: none;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar el botón */
+}
+
+.btnReporte{
+    background: #8296ff;
+  background: linear-gradient(308deg, rgba(63, 94, 251, 1) 0%, rgb(255, 122, 148) 100%);
+  color: #ffffff;
+  border-radius: 10px;
+  --background: none;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+.header-container ion-button {
+  margin: 0;
+  padding: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  color: #740000;
 }

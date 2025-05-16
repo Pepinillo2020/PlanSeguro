@@ -57,3 +57,12 @@
   outline: none !important;
   width: 100% !important;
 }
+
+:root {
+  --page-background: #232323; // Cambia este color por el que desees como fondo global
+}
+
+ion-content {
+  --background: var(--page-background);
+  background: var(--page-background) !important;
+}

@@ -5,8 +5,10 @@ const reporteSchema = new mongoose.Schema({
   descripcion: String,
   latitud: Number,
   longitud: Number,
+  ubicacion: String,
   fecha: { type: Date, default: Date.now },
-  imagen: String // URL o base64 si más adelante agregas imágenes
+  imagen: String, // URL o base64 si más adelante agregas imágenes
+  usuarioId: String,
 });
 
 module.exports = mongoose.model('Reporte', reporteSchema);

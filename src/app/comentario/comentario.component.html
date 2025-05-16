@@ -39,26 +39,30 @@
           <ion-input type="file" (change)="onFileChange($event)" accept="image/*"></ion-input>
         </ion-item>
 
-        <ion-button expand="full" type="submit">Enviar Reporte</ion-button>
+        <ion-button expand="full" type="submit" class="btnReporte">Enviar Reporte</ion-button>
       </form>
     </ion-card-content>
   </ion-card>
 
   <!-- Reportes ya enviados -->
   <ion-card *ngFor="let reporte of reportes" style="padding-bottom: 56px;">
-    <ion-card-header>
-      <ion-card-title>Reporte sobre Incidente</ion-card-title>
-    </ion-card-header>
+<ion-card-header>
+  <div class="header-container">
+    <ion-card-title>{{ reporte.tipo }}</ion-card-title>
+    <ion-button fill="clear" (click)="eliminarReporte(reporte._id)">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </div>
+</ion-card-header>
     <ion-card-content>
-      <p><strong>Tipo de Incidente:</strong> {{ reporte.tipo }}</p>
       <p><strong>Ubicación:</strong> {{ reporte.ubicacion }}</p>
       <p><strong>Descripción:</strong> {{ reporte.descripcion }}</p>
-      <p *ngIf="reporte.imagen"><strong>Imagen adjunta:</strong></p>
+      <p *ngIf="reporte.imagen"><strong>Imagen del incidente:</strong></p>
       <img *ngIf="reporte.imagen" [src]="reporte.imagen" alt="Imagen incidente" style="width: 100%; border-radius: 8px;">
     </ion-card-content>
 
   </ion-card>
-  <ion-button class="fixed-button" (click)="toggleFormulario()">
+  <ion-button class="btnReportar" (click)="toggleFormulario()">
     <ion-icon name="megaphone-outline" style="font-size: 35px;"></ion-icon>
   </ion-button>
 

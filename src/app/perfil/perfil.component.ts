@@ -36,6 +36,9 @@ export class PerfilComponent  implements OnInit {
 
   ngOnInit() {
     this.usuario = this.authService.getUsuario();
-
   }
+
+  verMisReportes() {
+  this.router.navigate(['/comentario'], { queryParams: { soloMios: true } });
+}  
 }
