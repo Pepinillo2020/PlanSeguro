@@ -131,19 +131,7 @@ export class HomePage implements OnInit {
       // Geolocalización del usuario
       this.map.locate({ setView: true, maxZoom: 16 });
 
-      // Ícono personalizado para la ubicación del usuario
-      const userIcon = L.icon({
-        iconUrl: 'assets/icon/user-location.png', // Ruta al ícono personalizado
-        iconSize: [32, 32], // Tamaño del ícono
-        iconAnchor: [16, 32], // Punto del ícono que se ancla al mapa
-        popupAnchor: [0, -32], // Punto desde donde se abre el popup
-      });
-
       // Evento para manejar la ubicación encontrada
-      this.map.on('locationfound', (e: L.LocationEvent) => {
-        const userMarker = L.marker(e.latlng, { icon: userIcon }).addTo(this.map);
-        userMarker.bindPopup('Estás aquí').openPopup();
-      });
 
       // Evento para manejar errores de geolocalización
       this.map.on('locationerror', (e: L.ErrorEvent) => {
